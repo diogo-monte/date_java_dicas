@@ -1,11 +1,15 @@
 package application;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
+		
+		Scanner sc = new Scanner(System.in);
 		
 //		ABAIXO, ALGUNS FORMATOS PARA COLOCAR A DATA ATUAL: 
 		
@@ -37,6 +41,19 @@ public class Main {
 		System.out.println((futuro_milis - agora_milis) / (1000 * 60 * 60 * 24)); 
 //		ACIMA PARA CALCULAR OS DIAS CORRIDOS ENTRE HOJE E UMA DATA FUTURA QUALQUER
 //		NO EXEMPLO ACIMA, RETORNOU OS DIAS CORRIDOS ENTRE A DATA DE HOJE E O FERIADO DE NATAL
+		
+//		OS COMANDOS ABAIXO SERVEM PARA QUE O USUARIO DIGITE UMA DATA(STRING) E QUE GUARDEMOS ESTA DATA NO DATE.
+		
+		System.out.println("Data (DD/MM/AAAA): ");
+		String data_string = sc.nextLine();
+		
+		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+		
+		Date data = format.parse(data_string);
+		
+		System.out.println((int)(data.getYear()+1900));
+		
+		sc.close();
 	}
 
 }
