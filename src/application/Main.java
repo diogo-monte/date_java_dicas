@@ -44,14 +44,10 @@ public class Main {
 		
 //		OS COMANDOS ABAIXO SERVEM PARA QUE O USUARIO DIGITE UMA DATA(STRING) E QUE GUARDEMOS ESTA DATA NO DATE.
 		
-		System.out.println("Data (DD/MM/AAAA): ");
-		String data_string = sc.nextLine();
+		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
+		Date data = formato.parse(sc.nextLine());
+		System.out.println(formato.format(data)); 
 		
-		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-		
-		Date data = format.parse(data_string);
-		
-		System.out.println((int)(data.getYear()+1900));
 		
 		sc.close();
 	}
